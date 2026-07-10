@@ -1,0 +1,86 @@
+#+TITLE: Diceps System Architecture Overview
+#+AUTHOR: Mikhail Erementchouk
+#+EMAIL: merement@gmail.com
+#+DATE: <2026-07-10 Fri>
+#+KEYWORDS: architecture, ddim, system-design, diceps
+#+DESCRIPTION: High-level architectural blueprint of the Diceps distributed computing platform.
+
+* Overview
+
+This document provides a high-level overview of the *Diceps* (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) architecture. 
+
+Diceps is designed to realize continuous-time spin dynamics (modeled on the U-M V-2 non-binary dynamical Ising machine equations) across a physical network of low-cost microcontrollers. It serves as an experimental testbed for understanding the physical constraints, latencies, and synchronization issues inherent in distributed unconventional hardware.
+
+* System Context & Topology
+
+The Diceps platform is divided into two primary environments: the **Host PC** (orchestration, simulation, visualization) and the **MCU Cluster** (distributed physical solver nodes).
+
+#+caption: Diceps System Context Diagram
+#+name: fig:system-context
+[[file:../diagrams/generated/01_system_context.svg]]
+
+** 1. The Host PC (Orchestrator)
+- **Role:** Translates high-level optimization problems (e.g., Max-Cut adjacency matrices) into configuration payloads, initiates annealing cycles, monitors node telemetry, and visualizes the results.
+- **Components:**
+  - =diceps-host= (Rust-based orchestrator, TUI, and communication API).
+  - =Dice-GUI= (Python/PyQt6 monitoring and configuration application).
+
+** 2. The MCU Cluster (Solver)
+- **Role:** Distributed nodes executing the V-2 spin equations in parallel.
+- **Components:**
+  - **ESP32-C6 DevBoards:** The physical compute units executing bare-metal solver loops.
+  - **Interconnect Bus:** The low-latency routing network (wired CAN/TWAI, daisy-chained SPI, or wireless Zigbee/802.15.4) that broadcasts spin states between nodes.
+
+* Core Subsystems
+
+The architecture of Diceps is detailed across several specific specifications:
+
+** [[file:hardware.org][1. Hardware Architecture]]
+Defines the physical layout of the ESP32-C6 node cluster, GPIO assignments, power distribution constraints, and peripheral pinouts for the inter-node communication channels.
+- *Diagram Reference:* [[file:../diagrams/generated/02_platform_subsystems.svg][Platform Subsystems]]
+
+** [[file:firmware.org][2. Firmware Architecture]]
+Specifies the bare-metal C/C++ firmware structure running on the ESP32-C6 RISC-V cores. It details FreeRTOS tasks, hardware timer interrupts, Direct Memory Access (DMA) buffer management, and decoupling of solver math from hardware drivers.
+- *Diagram Reference:* [[file:../diagrams/generated/03_firmware_modules.svg][Firmware Modules]]
+
+** [[file:solver_algorithm.org][3. Solver Algorithm]]
+Outlines the numerical implementation of the V-2 spin equations. This details discretization methods, fixed-point vs. floating-point quantization trade-offs, and boundary/endpoint seam-flipping logic.
+
+** [[file:communication_protocol.org][4. Communication Protocol]]
+Defines the low-overhead packet schemas, serialization rules, synchronization handshakes, and error correction mechanisms used for node-to-node broadcasts and host-to-cluster telemetry.
+
+* Data & Control Flow
+
+The standard lifecycle of an optimization run on the Diceps platform proceeds as follows:
+
+#+begin_src puml :file ../diagrams/generated/system-data-flow.svg :exports results
+@startuml
+skinparam backgroundColor transparent
+autonumber
+
+actor Researcher
+participant "Host PC (diceps-host)" as Host
+participant "MCU Cluster (Diceps Nodes)" as Cluster
+
+Researcher -> Host: Load Adjacency Graph (Max-Cut Problem)
+activate Host
+Host -> Cluster: Send problem configuration & coupling weights
+activate Cluster
+Cluster -> Cluster: Calibrate clock sync / Initialize random spins
+Cluster -> Cluster: Run parallel analog-relaxation integration loops
+Note over Cluster: Inter-node spin state broadcasting\nvia low-latency interconnect
+Cluster -> Cluster: Detect system stabilization (energy minimum)
+Cluster -> Host: Stream telemetry & final spin configurations
+deactivate Cluster
+Host -> Researcher: Render convergence TUI & plot energy landscape
+deactivate Host
+@endum
+#+end_src
+
+#+caption: Problem Lifecycle and Telemetry Flow
+#+name: fig:system-data-flow
+[[file:../diagrams/generated/system-data-flow.svg]]
+
+* Status and Stability
+
+As Diceps is an active research project, component designs are at various stages of maturity. Please refer to the [[file:../status_legend.org][Project Status Legend]] for definitions of the status stereotypes used throughout our architectural documentation.

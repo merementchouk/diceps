@@ -8,12 +8,12 @@
 
 This repository hosts a collaborative engineering project implementing *Diceps* (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) across a physical cluster of ESP32-C6 DevBoards. 
 
-An Ising machine is a specialized hardware accelerator designed to solve NP-hard optimization problems by modeling them as networks of interacting magnetic spins that naturally evolve toward a minimum energy state. This project moves away from purely algorithmic software simulations, executing the dynamical equations directly on a distributed, multi-MCU hardware platform.
+An Ising machine is a specialized computational framework utilizing the computational properties of networks of interacting spins that naturally evolve toward a minimum energy state. This project moves away from purely algorithmic software simulations, executing the dynamical equations directly on a distributed, multi-MCU hardware platform.
 
 ** Core Objectives
 - Explore, implement, and benchmark various interconnect modes (e.g., high-speed SPI, CAN bus/TWAI, Wi-Fi, 802.15.4) to determine the ideal topology for low-latency spin-state broadcasting.
 - Develop deterministic, low-overhead communication protocols optimized for the ESP32-C6 RISC-V architecture.
-- Validate physical cluster performance against the proprietary mathematical models developed in our lab.
+- Validate physical cluster performance against the state-of-the-art mathematical models of the non-binary dynamical Ising machines developed at the University of Michigan.
 
 * Repository Structure
 
@@ -58,6 +58,6 @@ This hardware cluster project builds upon, interacts with, or expands concepts f
 The =docs/papers/= directory contains background scientific literature and reference material detailing the mathematics, optimization models, and algorithms underlying the Diceps project.
 
 - [[file:docs/papers/Shukla%20et%20al.%20-%202025%20-%20Non-binary%20dynamical%20Ising%20machines%20for%20combinatorial%20optimization.pdf][Non-binary dynamical Ising machines for combinatorial optimization (Shukla et al., 2025)]]
-- [[file:docs/papers/Symmetry-induced%20parallelism.pdf][Symmetry-induced parallelism]]
+- [[file:docs/papers/Symmetry-induced%20parallelism.pdf][Symmetry-induced parallelism enabled by the V-2 model]]
 - [[file:docs/papers/V_2%20for%20discrete%20tomography.pdf][V_2 model for discrete tomography]]
-- [[file:docs/papers/V_2%20model%20foundations.pdf][V_2 model foundations]]
+- [[file:docs/papers/V_2%20model%20foundations.pdf][Foundations of the V_2 model]]
