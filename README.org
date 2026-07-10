@@ -6,7 +6,9 @@
 
 * Overview
 
-This repository hosts a collaborative engineering project implementing *Diceps* (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) across a physical cluster of ESP32-C6 DevBoards. 
+This repository hosts a collaborative engineering project implementing
+*Diceps* (Distributed Ising Computing on ESP Platform System) across a
+physical cluster of ESP32-C6 DevBoards.
 
 An Ising machine is a specialized computational framework utilizing the computational properties of networks of interacting spins that naturally evolve toward a minimum energy state. This project moves away from purely algorithmic software simulations, executing the dynamical equations directly on a distributed, multi-MCU hardware platform.
 

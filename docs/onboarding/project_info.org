@@ -9,9 +9,18 @@
 
 Thank you for your interest in our research project: *Quantum-Inspired Spin-Based Computing Architectures*. 
 
-We are building **Diceps** (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) — a physical computing platform designed to solve hard mathematical optimization problems (like scheduling, pathfinding, or routing) by mimicking the way networks of spins settle into low-energy states.
+We are building *Diceps* (Distributed Ising Computing on ESP Platform System)
+— a physical computing platform designed to solve hard mathematical
+optimization problems (like scheduling, pathfinding, or routing) by
+mimicking the way networks of spins settle into low-energy states.
 
-We are building a physical cluster of low-cost ESP32-C6 microcontrollers that work together as an unconventional computing system. The purpose is to confront the realities that future distributed Ising-style machines will face: communication latency, packet loss, synchronization error, hardware noise, bandwidth limits, and congestion. These effects are hard to capture faithfully in idealized simulations, making the physical testbed essential for developing practical architectural insight.
+We are building a physical cluster of low-cost ESP32-C6 microcontrollers
+that work together as an unconventional computing system. The purpose is to
+confront the realities that future distributed Ising-style machines will
+face: communication latency, packet loss, synchronization error, hardware
+noise, bandwidth limits, and congestion. These effects are hard to capture
+faithfully in idealized simulations, making the physical testbed essential
+for developing practical architectural insight.
 
 ** Core Research Objective: Designing Unconventional Architecture
 
@@ -30,35 +39,35 @@ This project is a fantastic way to gain hands-on engineering experience that bri
 
 ** What You Will Learn and Build:
 
-- **Design Unconventional Computing Architecture:** Move beyond standard firmware writing to design the core communication and synchronization protocols that allow distributed microcontrollers to collectively act as a single computing engine. You will study *what* information needs to be exchanged, *how* to exchange it efficiently (e.g., buffering, cache design, and error correction), and how to maintain network-wide synchronization.
-- **Embedded C/C++ Development:** Write bare-metal firmware using the official Espressif IoT Development Framework (ESP-IDF) on RISC-V microcontrollers.
-- **Modern System Programming:** Work with Rust and Python to build host orchestrators and real-time graphical and terminal user interfaces (GUIs, TUIs).
-- **Hardware-in-the-Loop & Networking:** Benchmark low-latency networks using wired (SPI, CAN bus) or wireless (Zigbee, Wi-Fi) channels.
-- **Collaborative Engineering:** Work with Git, GitHub, Pull Requests, and Architectural Decision Records (ADRs) just like professional engineering teams.
-
+- *Design Unconventional Computing Architecture:* Move beyond standard firmware writing to design the core communication and synchronization protocols that allow distributed microcontrollers to collectively act as a single computing engine. You will study *what* information needs to be exchanged, *how* to exchange it efficiently (e.g., buffering, cache design, and error correction), and how to maintain network-wide synchronization.
+- *Embedded C/C++ Development:* Write bare-metal firmware using the official Espressif IoT Development Framework (ESP-IDF) on RISC-V microcontrollers.
+- *Modern System Programming:* Work with Rust and Python to build host orchestrators and real-time graphical and terminal user interfaces (GUIs, TUIs).
+- *Hardware-in-the-Loop & Networking:* Benchmark low-latency networks using wired (SPI, CAN bus) or wireless (Zigbee, Wi-Fi) channels.
+- *Collaborative Engineering:* Work with Git, GitHub, Pull Requests, and Architectural Decision Records (ADRs) just like professional engineering teams.
+  
 * Student Tracks & Responsibilities
 
 You don't need to do everything! We have organized the project into several tracks so you can focus on what interests you most:
 
 ** 1. Firmware & Hardware Track
-- **Tasks:** Write ESP32-C6 drivers, configure hardware timers and Direct Memory Access (DMA) channels, and implement the numerical equations directly in C/C++.
-- **Key Tech:** C, C++, ESP-IDF.
+- *Tasks:* Write ESP32-C6 drivers, configure hardware timers and Direct Memory Access (DMA) channels, and implement the numerical equations directly in C/C++.
+- *Key Tech:* C, C++, ESP-IDF.
 
 ** 2. Communications & Networking Track
-- **Tasks:** Build and test communication protocols between microcontrollers. Benchmark packet loss and delays over CAN bus, SPI daisy chains, and wireless 802.15.4.
-- **Key Tech:** C, Zigbee, SPI, CAN/TWAI.
+- *Tasks:* Build and test communication protocols between microcontrollers. Benchmark packet loss and delays over CAN bus, SPI daisy chains, and wireless 802.15.4.
+- *Key Tech:* C, Zigbee, SPI, CAN/TWAI.
 
 ** 3. Host Tooling, Simulation & Visualization Track
-- **Tasks:** Develop the host-side tools used to simulate, control, monitor, and visualize the Diceps platform. Students may work on behavior simulation, communication protocols and APIs between the host and MCU cluster, terminal-based control interfaces, or GUI frontends for visualizing spin states and convergence in real time.
-- **Key Tech:** Rust (Ratatui TUI, host/platform communication), Python (PyQt6, simulation and visualization).
+- *Tasks:* Develop the host-side tools used to simulate, control, monitor, and visualize the Diceps platform. Students may work on behavior simulation, communication protocols and APIs between the host and MCU cluster, terminal-based control interfaces, or GUI frontends for visualizing spin states and convergence in real time.
+- *Key Tech:* Rust (Ratatui TUI, host/platform communication), Python (PyQt6, simulation and visualization).
 
 ** 4. Mathematics & Algorithm Track
-- **Tasks:** Analyze the mathematical convergence of the R-DIM algorithms and compare physical MCU cluster performance against idealized simulations.
-- **Key Tech:** Julia, Python, Jupyter.
+- *Tasks:* Analyze the mathematical convergence of the R-DIM algorithms and compare physical MCU cluster performance against idealized simulations.
+- *Key Tech:* Julia, Python, Jupyter.
 
 * Who We Are Looking For
 
-**Minimum Qualifications:**
+*Minimum Qualifications:*
 - Curiosity about unconventional computing, networks, or robotics.
 - Basic programming experience in C/C++ or Python.
 - Familiarity with basic digital logic or circuits (GPIOs, serial communication).
@@ -67,5 +76,5 @@ You don't need to do everything! We have organized the project into several trac
 
 * How to Apply
 
-1. **Review the Onboarding Guide:** Check out our [[file:contributor_guide.org][Contributor Onboarding Guide]] to see how we organize tasks and code.
-2. **Reach Out:** Send an email to **Dr. Mikhail Erementchouk** (merement@umich.edu) with your resume and a brief description of which track(s) you are most interested in.
+1. *Review the Onboarding Guide:* Check out our [[file:contributor_guide.org][Contributor Onboarding Guide]] to see how we organize tasks and code.
+2. *Reach Out:* Send an email to *Dr. Mikhail Erementchouk* (merement@umich.edu) with your resume and a brief description of which track(s) you are most interested in.
