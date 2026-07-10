@@ -1,0 +1,45 @@
+#+TITLE: Project Open Questions
+#+AUTHOR: Project Contributors
+#+DATE: <2026-07-09 Thu>
+#+OPTIONS: tex: t LaTeX: t toc:nil ^:{}
+#+KEYWORDS: open questions, research, blockers, ddim
+#+DESCRIPTION: Living document tracking active engineering uncertainties and mathematical questions.
+
+NOTE: This is a preliminary version of the file.
+
+* Overview
+
+This document tracks system-level uncertainties, research blockers, and engineering trade-offs. 
+
+*Precedence Notice*: This file serves as a collaborative sandbox for active lab discussions. Action items, formal assignments, and final task resolutions must be tracked explicitly within the GitHub Issue Tracker, which takes precedence over this file.
+
+* Mathematical & Simulation Questions
+
+** TODO [MATH-001] Fixed-point quantization impact on spin updates
+- *Context*: The lab papers define continuous-time dynamics. When implementing this on the ESP32-C6 RISC-V core, floating-point math may introduce too much calculation latency.
+- *Question*: Can we map the simulation variables to 16-bit or 32-bit fixed-point integers without destabilizing the energy minimization landscape?
+- *Discussion*: See discussion notes in =docs/papers/Erementchouk-etal-Self-ALDIM.pdf= regarding stability boundaries.
+
+* Hardware & Interconnect Questions
+
+** TODO [HW-001] Optimal communication peripheral for spin-state broadcasting
+- *Context*: We need to minimize propagation delay when nodes broadcast their local spin values to neighboring nodes.
+- *Question*: Should we prioritize a wired multidrop bus topology like CAN bus (TWAI), or will custom high-speed SPI chaining provide lower latency for a small cluster of ESP32-C6 DevBoards?
+- *Suggested Experiments*: Benchmark basic raw packet round-trip times for both peripherals under high congestion.
+
+** TODO [HW-002] Clock synchronization accuracy across nodes
+- *Context*: A synchronous update model requires all distributed MCUs to step through integration intervals at identical intervals.
+- *Question*: Is the internal clock drift of separate ESP32-C6 boards low enough to maintain synchronization over long execution runs, or do we need a physical master clock wire triggering a GPIO interrupt on all slave boards?
+
+* Architectural & Protocol Questions
+
+** TODO [ARCH-001] Handling packet loss in dense graph topologies
+- *Context*: If wireless (802.15.4) or wired connections drop a packet during an annealing cycle, the network topology becomes temporarily altered.
+- *Question*: Does the dynamical Ising machine model handle occasional packet drop inherently as system noise, or will it cause the simulation to diverge or stall?
+
+* How to Update This File
+
+1. If you discover a fundamental question or blocker during development, check if a similar issue exists on GitHub.
+2. Add a new headline under the appropriate section using the format: =** TODO [CATEGORY-XXX] Short descriptive title=.
+3. Provide a brief context paragraph and your explicit questions.
+4. Bring these items up during lab meetings. Once an engineering path is finalized, document the resolution in an ADR, create relevant GitHub issues, and mark the item here as =DONE=.

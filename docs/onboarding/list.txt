@@ -1,3 +1,0 @@
- ├── getting_started.org
- ├── toolchain_setup.org
- └── student_contributor_guide.org

@@ -1,7 +1,63 @@
-#+TITLE:
-#+AUTHOR: Misha Erementchouk
-#+EMAIL: merement@gmail.com
-#+DATE: 
-#+OPTIONS: tex: t LaTeX: t toc:nil ^:{}
-#+KEYWORDS:
-#+DESCRIPTION:
+#+TITLE: Distributed Dynamical Ising Machine (DDIM) on ESP32-C6
+#+AUTHOR: Project Lead & Contributors
+#+OPTIONS: tex: t LaTeX: t toc:t ^:{}
+#+KEYWORDS: esp32-c6, ising-machine, distributed-computing, embedded-systems
+#+DESCRIPTION: Root repository for a collaborative engineering project implementing an MCU-based distributed dynamical Ising machine.
+
+* Overview
+
+This repository hosts a collaborative engineering project to implement a *Distributed Dynamical Ising Machine (DDIM)* across a physical cluster of ESP32-C6 DevBoards. 
+
+An Ising machine is a specialized hardware accelerator designed to solve NP-hard optimization problems by modeling them as networks of interacting magnetic spins that naturally evolve toward a minimum energy state. This project moves away from purely algorithmic software simulations, executing the dynamical equations directly on a distributed, multi-MCU hardware platform.
+
+** Core Objectives
+- Explore, implement, and benchmark various interconnect modes (e.g., high-speed SPI, CAN bus/TWAI, Wi-Fi, 802.15.4) to determine the ideal topology for low-latency spin-state broadcasting.
+- Develop deterministic, low-overhead communication protocols optimized for the ESP32-C6 RISC-V architecture.
+- Validate physical cluster performance against the proprietary mathematical models developed in our lab.
+
+* Repository Structure
+
+This workspace is organized to support a seamless, mixed-format documentation ecosystem while keeping code and hardware logic fully modularized:
+
+#+begin_example
+.
+├── agents.md               # Custom AI persona constraints for Antigravity IDE
+├── src/                    # (Planned) Core C/C++ firmware and hardware drivers
+├── PURE-ECE notes.org      # Internal project notes and scratchpad
+├── README.org              # This file
+├── tmp/                    # Ephemeral build artifacts and scratch space
+└── docs/                   # Main project documentation partition
+    ├── architecture/       # High-level system designs and interface specifications
+    ├── decisions/          # Architectural Decision Records (ADRs) tracking design choices
+    ├── diagrams/           # PlantUML text sources and generated production SVGs
+    ├── onboarding/         # Contributor onboarding workflows and guide files
+    ├── papers/             # Background literature, lab models, and reference readmes
+    ├── planning/           # Project roadmap, task breakdowns, and open questions
+    └── templates/          # Standard layout blueprints for files like new ADRs
+#+end_example
+
+* Documentation & Workflow Philosophy
+
+This project prioritizes explicit knowledge propagation alongside functional firmware implementation. 
+
+- *Primary Format*: The master document format for this repository is Org-mode (=.org=). 
+- *GitHub-First View*: Contributors are not expected to be power users of Emacs or Org-mode. All documents are written using a basic, clean subset of syntax to ensure they render perfectly inside the standard GitHub web interface.
+- *Task Authority*: The GitHub Issue Tracker is the absolute source of truth for task tracking and holds complete precedence over files in the repository. Localized =to_add.lst= task files and inline =TODO= markers serve purely as suggestions and roadmap guides.
+
+For an in-depth breakdown of developer workflows, coding conventions, and documentation standards, please read the *Contributor Onboarding Guide* located at:
+[[file:docs/onboarding/contributor_guide.org]]
+
+* Related Ecosystem Projects
+
+This hardware cluster project builds upon, interacts with, or expands concepts from the following core lab projects:
+
+- *[[https://github.com/merement/Dice][Dice Simulation Library]]*: The underlying mathematical simulation framework and algorithm core.
+- *[[https://github.com/merement/Dice-GUI][Dice-GUI Application]]*: The visual user interface for interacting with, monitoring, and configuring the simulation parameters.
+- *[[https://github.com/merement/diceps-host][diceps-host Orchestrator]]*: The host-side orchestration utility responsible for parsing problem structures and managing execution jobs.
+
+#+begin_note
+*Documentation Notice regarding Source Papers:*
+The =docs/papers/= directory currently aggregates various background PDFs, math templates, and legacy README copies imported directly from the related repositories listed above. These external reference files are provided strictly to serve as operational context for developers and integrated workspace AI tools. 
+
+Please note that *the file names, contents, and organization within =docs/papers/= are currently unstable* and will undergo major revisions as we replace placeholder material with tailored, lab-specific documentation. Avoid linking directly to individual file names within that directory.
+#+end_note

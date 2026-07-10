@@ -1,0 +1,45 @@
+#+TITLE: Architecture Decision Record Template
+#+AUTHOR: Project Contributor
+#+EMAIL: student@email.edu
+#+DATE: <YYYY-MM-DD Day>
+#+KEYWORDS: ADR, template
+#+DESCRIPTION: Master template for recording architectural and engineering decisions.
+
+#+begin_src org
+,#+title: ADR-XXXX: Short Descriptive Title #+date: YYYY-MM-DD #+status: [Proposed | Accepted | Superseded]
+#+end_src
+
+* Context
+
+Provide a clear statement of the engineering problem or system requirement. 
+Explain the constraints, background information, and specific hardware or mathematical challenges (e.g., ESP32-C6 memory limits, spin-state latency requirements) that necessitate a decision.
+
+* Decision
+
+State the chosen course of action clearly and definitively. Focus on the *what* and the *how* of the implementation strategy.
+
+* Rationale
+
+Detail the explicit engineering reasons behind this choice:
+- Detail point 1 (e.g., performance impact on the MCU execution loop).
+- Detail point 2 (e.g., simplification of the distributed synchronization protocol).
+- Detail point 3 (e.g., alignment with the lab's mathematical model papers).
+
+* Alternatives Considered
+
+List the secondary paths that were evaluated but ultimately passed over.
+
+** [Alternative Title 1]
+
+Explain what this option was and explicitly why it was rejected.
+
+** [Alternative Title 2]
+
+Explain what this option was and explicitly why it was rejected.
+
+* Consequences
+
+Outline the downstream impacts, required follow-up actions, and trade-offs resulting from this decision:
+- Action item or technical debt introduced.
+- New software modules or parsers that must be written.
+- Operational impacts on the cluster performance or hardware wiring layout.

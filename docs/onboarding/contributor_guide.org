@@ -1,34 +1,89 @@
-#+TITLE:
+#+TITLE: Contributor Onboarding Guide
 #+AUTHOR: Misha Erementchouk
 #+EMAIL: merement@gmail.com
-#+DATE: 
-#+OPTIONS: tex: t LaTeX: t toc:nil ^:{}
-#+KEYWORDS:
-#+DESCRIPTION:
+#+DATE: <2026-07-09 Thu>
+#+KEYWORDS: onboarding, workflow, guidelines, ddim
+#+DESCRIPTION: Foundational guide for researchers contributing to the project.
 
-It should include:
+* Project Goals
 
-- Project goals in plain language
-- Expected background
-- Development workflow
-- How to read diagrams
-- How to pick up a task
-- How to ask questions
-- Coding conventions
-- Documentation expectations
+The main objective of this project is to implement a Distributed Dynamical Ising Machine (DDIM) using a cluster of ESP32-C6 microcontrollers. An Ising machine is a specialized hardware accelerator designed to solve hard optimization problems (like scheduling, routing, or network grouping) by mimicking magnetic spin behaviors that naturally minimize system energy. 
+
+Instead of traditional software simulations, this project distributes the mathematical equations across physical microcontrollers. We aim to:
+- Investigate which communication pathways (SPI, CAN bus, Wi-Fi, 802.15.4) offer the lowest delay for exchanging node data.
+- Build predictable, low-latency communication protocols between the chips.
+- Validate our real-world hardware cluster against the core mathematical models developed right here in our lab.
+
+* Expected Background
+
+You do not need to be an expert in quantum physics or advanced distributed systems to contribute. We expect you to bring or learn:
+- Basic C/C++ programming for embedded systems (familiarity with hardware timers and registers is a plus).
+- Core understanding of digital logic and microcontrollers (peripherals, interrupts, and serial communication).
+- Comfort using Git for version control and basic file navigation on GitHub.
+- A willingness to read internal lab notes and ask questions when formulas or configurations seem unclear.
+
+* Development Workflow
+
+We use a standard GitHub-centric workflow to manage code and documentation:
+1. Fork or clone the repository to your local computer.
+2. Synchronize your local master branch with the main repository before starting any task.
+3. Create a descriptive local feature branch (e.g., =feature/spi-driver= or =docs/update-onboarding=).
+4. Make incremental, logical commits as you make progress.
+5. Push your branch to GitHub and open a Pull Request (PR) against the master branch for review.
+
+* How to Read Diagrams
+
+Our architecture and network layouts are tracked visually using PlantUML:
+- Diagram sources are stored as text files with the =.puml= extension under =docs/diagrams/src/=.
+- These sources are compiled into production vector graphics under =docs/diagrams/generated/=.
+- The generated =.svg= files are linked directly inside our Org-mode documents so you can read them cleanly right from the GitHub browser interface.
+- If you need to update a diagram, modify the text-based =.puml= file, rebuild the SVG, and commit both files together.
+
+* How to Pick Up a Task
+
+* How to Pick Up a Task
+
+Assignments are governed strictly by the GitHub Issue Tracker, which holds absolute precedence over any text files in the repository. 
+
+- Lists like =to_add.lst=, along with any inline =TODO= comments found within our Org documents, serve purely as *suggestions* and roadmap indicators.
+- Once you identify a suggested task or documentation file you want to tackle, check the active GitHub Issues to ensure it is not already assigned.
+- Open a new GitHub Issue (or claim an existing unassigned one) stating your intent. 
+- Once your issue is approved and assigned on GitHub, you are authorized to begin your branch.
+- After your work is merged via a Pull Request, close the issue and remove the corresponding line from =to_add.lst= if applicable.
+
+* How to Ask Questions
+
+Because this is a fluid research environment, running into blockers is a normal part of the process:
+- Search the existing Architectural Decision Records in =docs/decisions/= to see if your question relates to a choice that has already been finalized.
+- Check =docs/planning/open_questions.org= to see if your problem is already an active topic of discussion.
+- Open a detailed GitHub Issue if you discover a hardware bug, communication bottleneck, or a formula contradiction. Tag your peers and advisor.
+- Bring unresolved mathematical or operational questions to our regular lab sync meetings for open team discussion.
+
+* Coding Conventions
+
+To ensure teams can seamlessly hand off code to future cohorts, maintain these clean habits:
+- Write modular code. Keep core mathematical loop calculations entirely separated from the hardware abstraction layers (HAL).
+- Use clear, descriptive variable and function names rather than terse symbols (e.g., write =calculate_spin_rate()= instead of =calc_sr()=).
+- Use hardware timers and Direct Memory Access (DMA) channels where possible instead of blocking delay functions.
+- Extensively comment your firmware to explain the exact mathematical step or timing reason behind a block of low-level C code.
+
+* Documentation Expectations
+
+Knowledge propagation is a vital deliverable of this research project:
+- The primary documentation format is Org-mode (=.org=).
+- You do *not* need to be a power user or proficient in Org-mode to contribute. You will primarily interact with these documents via the standard GitHub web view.
+- Stick strictly to basic, clean Org-mode syntax (simple headers, standard lists, clear tables, and basic code blocks) to guarantee flawless rendering in a web browser.
+- Avoid advanced Emacs macros, complex export strings, or custom tags that break standard GitHub markdown rendering.
 
 * Definition of Done
 
-Completing a task includes both the technical and documentation parts. This
-is a fluid research project, therefore obtained knowledge is a significant
-part of it.
+Completing a task includes both the technical and documentation parts. This is a fluid research project, therefore obtained knowledge is a significant part of it.
 
 A simple checklist may go as follows:
-
 - Code or design artifact is committed.
 - Relevant tests or validation notes are included.
 - Relevant documentation is updated.
 - Affected PlantUML diagrams are updated, if applicable, or updates are requested.
 - Any new assumptions are recorded.
-- Any unresolved questions are added to open_questions.org or a GitHub issue.
+- Any unresolved questions are added to =open_questions.org= or a GitHub issue.
 - Pull request links to the corresponding GitHub issue.

@@ -6,9 +6,8 @@
 #+DESCRIPTION: An example of an Architecture Decision Record (ADR)
 
 #+begin_src org
-,#+title: ADR-0003: Problem Instance Format
-,#+date: 2026-02-03
-,#+status: Proposed
+,#+title: ADR-0003: Problem Instance Format #+date: 2026-02-03 #+status:
+Proposed
 #+end_src
 
 * Context
@@ -42,3 +41,5 @@ Rejected because users need inspectable experiment definitions.
 - Need a host-side encoder.
 - Need a firmware-side binary parser.
 - Need versioning in the problem format.
+
+  

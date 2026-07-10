@@ -1,0 +1,35 @@
+#+TITLE: Org-diagram template
+#+AUTHOR: Misha Erementchouk
+#+EMAIL: merement@gmail.com
+#+DATE: <2026-07-09 Thu>
+#+KEYWORDS:
+#+DESCRIPTION:
+
+* Distributed Node Initialization
+
+This section tracks the startup handshake protocol for our ESP32-C6 cluster. 
+
+#+begin_comment
+WORK IN PROGRESS (WIP): The interactive PlantUML macro below is for local editing 
+and drafting inside Emacs/Antigravity. Once finalized, export this diagram to 
+'docs/diagrams/src/node-handshake.svg' and update the target link below.
+#+end_comment
+
+#+begin_src puml :file ../diagrams/generated/node-handshake.svg :exports results
+@startuml
+skinparam backgroundColor transparent
+autonumber
+
+participant "Governing Node (0)" as Master
+participant "Actor Node (1)" as Actor
+
+Master -> Actor: Broadcast SYNC_INIT Packet
+activate Actor
+Actor -> Master: Acknowledge SYNC_ACK
+deactivate Actor
+@endum
+#+end_src
+
+#+caption: SPI/CAN Bus Synchronization Handshake Protocol
+#+name: fig:node-handshake
+[[file:../diagrams/generated/node-handshake.svg]]
