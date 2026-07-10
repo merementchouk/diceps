@@ -9,11 +9,11 @@ NOTE: The parts not supplemented by a diagram should be regarded as placeholders
 
 * Overview
 
-This document provides a high-level overview of the *Diceps* (**D**istributed
-**I**sing **C**omputing on **E**SP **P**latform **S**ystem) architecture.
+This document provides a high-level overview of the *Diceps* (Distributed
+Ising Computing on ESP Platform System) architecture.
 
 Diceps is designed to realize continuous-time relaxed spin dynamics
-described by the V-2 model (see [REF:V_2_FOUNDATIONS]) across a physical
+described by the V-2 model (see [[file:../papers/][V-2 foundations]]) across a physical
 network of low-cost microcontrollers. It serves as an experimental testbed
 for understanding the physical constraints, latencies, and synchronization
 issues inherent in distributed unconventional hardware.
@@ -33,8 +33,8 @@ List of diagrams
 
 * System Structure
 
-The Diceps platform is divided into two primary environments: the **Host PC**
-(orchestration, monitoring) and the **MCU Ising Platform** (distributed
+The Diceps platform is divided into two primary environments: the *Host PC*
+(orchestration, monitoring) and the *MCU Ising Platform (distributed
 solver nodes). They are connected through the *Host-Backend Interface*, which
 could be either a logical boundary or a dedicated bridge device.
 
@@ -44,8 +44,8 @@ could be either a logical boundary or a dedicated bridge device.
 
 
 ** 1. The Host PC (Orchestrator)
-- **Role:** Translates high-level optimization problems (e.g., Max-Cut adjacency matrices) into configuration payloads, initiates annealing cycles, monitors node telemetry, and visualizes the results.
-- **Components:**
+- *Role:* Translates high-level optimization problems (e.g., Max-Cut adjacency matrices) into configuration payloads, initiates annealing cycles, monitors node telemetry, and visualizes the results.
+- *Components:*
   - =diceps-host= (Rust-based orchestrator, TUI, and communication API).
   - =Dice-GUI= (Python/PyQt6 monitoring and configuration application).
 
