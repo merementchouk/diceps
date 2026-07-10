@@ -23,9 +23,7 @@ This workspace is organized to support a seamless, mixed-format documentation ec
 .
 ├── agents.md               # Custom AI persona constraints for Antigravity IDE
 ├── src/                    # (Planned) Core C/C++ firmware and hardware drivers
-├── PURE-ECE notes.org      # Internal project notes and scratchpad
 ├── README.org              # This file
-├── tmp/                    # Ephemeral build artifacts and scratch space
 └── docs/                   # Main project documentation partition
     ├── architecture/       # High-level system designs and interface specifications
     ├── decisions/          # Architectural Decision Records (ADRs) tracking design choices
@@ -52,8 +50,8 @@ For an in-depth breakdown of developer workflows, coding conventions, and docume
 This hardware cluster project builds upon, interacts with, or expands concepts from the following core lab projects:
 
 - *[[https://github.com/merement/Dice][Dice Simulation Library]]*: The underlying mathematical simulation framework and algorithm core.
-- *[[https://github.com/merement/Dice-GUI][Dice-GUI Application]]*: The visual user interface for interacting with, monitoring, and configuring the simulation parameters.
-- *[[https://github.com/merement/diceps-host][diceps-host Orchestrator]]*: The host-side orchestration utility responsible for parsing problem structures and managing execution jobs.
+- *[[https://github.com/merement/Dice-GUI][Dice-GUI Application]]*: The visual user interface for (WIP) interacting with, monitoring, and configuring the simulation parameters.
+- *[[https://github.com/merement/diceps-host][diceps-host Orchestrator]]*: The host-side orchestration utility implementing and documenting the host/platform communication API.
 
 #+begin_note
 *Documentation Notice regarding Source Papers:*
