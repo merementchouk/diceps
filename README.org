@@ -23,7 +23,6 @@ This workspace is organized to support a seamless, mixed-format documentation ec
 
 #+begin_example
 .
-├── agents.md               # Custom AI persona constraints for Antigravity IDE
 ├── src/                    # (Planned) Core C/C++ firmware and hardware drivers
 ├── README.org              # This file
 └── docs/                   # Main project documentation partition

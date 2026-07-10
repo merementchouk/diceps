@@ -50,10 +50,10 @@ could be either a logical boundary or a dedicated bridge device.
   - =Dice-GUI= (Python/PyQt6 monitoring and configuration application).
 
 ** 2. The MCU Cluster (Solver)
-- **Role:** Distributed nodes executing the V-2 spin equations in parallel.
-- **Components:**
-  - **ESP32-C6 DevBoards:** The physical compute units executing bare-metal solver loops.
-  - **Interconnect Bus:** The low-latency routing network (wired CAN/TWAI, daisy-chained SPI, or wireless Zigbee/802.15.4) that broadcasts spin states between nodes.
+- *Role:** Distributed nodes executing the V-2 spin equations in parallel.
+- *Components:*
+  - *ESP32-C6 DevBoards:* The physical compute units executing bare-metal solver loops.
+  - *Interconnect Bus:* The low-latency routing network (wired CAN/TWAI, daisy-chained SPI, or wireless Zigbee/802.15.4) that broadcasts spin states between nodes.
 
 * Core Subsystems
 

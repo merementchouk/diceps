@@ -10,8 +10,8 @@
 This section tracks the startup handshake protocol for our ESP32-C6 cluster. 
 
 #+begin_comment
-WORK IN PROGRESS (WIP): The interactive PlantUML macro below is for local editing 
-and drafting inside Emacs/Antigravity. Once finalized, export this diagram to 
+WORK IN PROGRESS (WIP): The interactive PlantUML macro below is for local
+editing and drafting. Once finalized, export this diagram to
 'docs/diagrams/src/node-handshake.svg' and update the target link below.
 #+end_comment
 
