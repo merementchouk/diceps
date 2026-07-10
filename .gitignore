@@ -1,0 +1,19 @@
+# Antigravity & Local IDE configs
+.antigravity/
+.vscode/
+.pio/
+build/
+
+# Compiled outputs and logs
+*.o
+*.bin
+*.elf
+*.log
+
+# System files
+.DS_Store
+Thumps.db
+.directory
+
+# Local files
+tmp

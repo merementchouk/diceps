@@ -1,0 +1,7 @@
+#+TITLE:
+#+AUTHOR: Misha Erementchouk
+#+EMAIL: merement@gmail.com
+#+DATE: 
+#+OPTIONS: tex: t LaTeX: t toc:nil ^:{}
+#+KEYWORDS:
+#+DESCRIPTION:

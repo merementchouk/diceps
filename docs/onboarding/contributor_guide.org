@@ -1,0 +1,34 @@
+#+TITLE:
+#+AUTHOR: Misha Erementchouk
+#+EMAIL: merement@gmail.com
+#+DATE: 
+#+OPTIONS: tex: t LaTeX: t toc:nil ^:{}
+#+KEYWORDS:
+#+DESCRIPTION:
+
+It should include:
+
+- Project goals in plain language
+- Expected background
+- Development workflow
+- How to read diagrams
+- How to pick up a task
+- How to ask questions
+- Coding conventions
+- Documentation expectations
+
+* Definition of Done
+
+Completing a task includes both the technical and documentation parts. This
+is a fluid research project, therefore obtained knowledge is a significant
+part of it.
+
+A simple checklist may go as follows:
+
+- Code or design artifact is committed.
+- Relevant tests or validation notes are included.
+- Relevant documentation is updated.
+- Affected PlantUML diagrams are updated, if applicable, or updates are requested.
+- Any new assumptions are recorded.
+- Any unresolved questions are added to open_questions.org or a GitHub issue.
+- Pull request links to the corresponding GitHub issue.

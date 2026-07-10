@@ -1,0 +1,33 @@
+#+TITLE: Project Status Legend
+#+AUTHOR: Misha Erementchouk
+#+EMAIL: merement@gmail.com
+#+DATE: <2026-07-03 Fri>
+#+KEYWORDS:
+#+DESCRIPTION: Status legends
+
+
+* Component Status Terms
+
+To indicate whether components can be expanded, should be expanded, are
+work-in-progress, investigative, and so on, use (and look for) the
+following legends.
+
+| Status          | Meaning                                                   |
+|-----------------+-----------------------------------------------------------|
+| Ready           | Design is stable enough for implementation                |
+| Needs Expansion | Component requires a lower-level diagram or specification |
+| Investigative   | Requires research, experiment, or decision                |
+| Prototype       | Can be implemented experimentally but is not final        |
+| Blocked         | Cannot proceed until dependency is resolved               |
+| Deferred        | Known need, intentionally postponed                       |
+| External        | Provided by external library, tool, or hardware           |
+| Unassigned      | No owner or executor assigned                             |
+
+* Usage
+
+These statuses should be used in:
+
+- PlantUML stereotypes
+- Architecture documents
+- Planning tables
+- GitHub issue labels where appropriate

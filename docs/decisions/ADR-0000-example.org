@@ -1,0 +1,44 @@
+#+TITLE: An ADR example
+#+AUTHOR: Misha Erementchouk
+#+EMAIL: merement@gmail.com
+#+DATE: <2026-07-03 Fri>
+#+KEYWORDS: example, ADR
+#+DESCRIPTION: An example of an Architecture Decision Record (ADR)
+
+#+begin_src org
+,#+title: ADR-0003: Problem Instance Format
+,#+date: 2026-02-03
+,#+status: Proposed
+#+end_src
+
+* Context
+
+The host computer must send Ising problem instances to the microcontroller.
+The platform may need to support dense and sparse coupling representations.
+
+* Decision
+
+Use a compact binary protocol for firmware execution and a JSON/YAML format
+for host-side experiment descriptions.
+
+* Rationale
+
+- Binary reduces microcontroller parsing burden.
+- JSON/YAML remains human-readable for experiment configuration.
+- Host tools can translate between them.
+
+* Alternatives Considered
+
+** Send JSON directly to the microcontroller
+
+Rejected because parsing overhead is too high for the target MCU.
+
+** Use only binary files
+
+Rejected because users need inspectable experiment definitions.
+
+* Consequences
+
+- Need a host-side encoder.
+- Need a firmware-side binary parser.
+- Need versioning in the problem format.

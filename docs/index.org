@@ -1,0 +1,36 @@
+#+TITLE: Project Documentation Index
+#+AUTHOR: Misha Erementchouk
+#+EMAIL: merement@gmail.com
+#+DATE: <2026-07-03 Fri>
+#+KEYWORDS: index, map
+#+DESCRIPTION: Incomplete
+
+* Start Here
+
+- [[./onboarding/getting_started.org][Getting Started]]
+- [[./architecture/overview.org][Architecture Overview]]
+- [[./planning/roadmap.org][Project Roadmap]]
+
+* Architecture
+
+- [[./architecture/hardware.org][Hardware Architecture]]
+- [[./architecture/firmware.org][Firmware Architecture]]
+- [[./architecture/solver_algorithm.org][Solver Algorithm]]
+- [[./architecture/communication_protocol.org][Communication Protocol]]
+
+* Diagrams
+
+- [[../diagrams/generated/01_system_context.svg][System Context]]
+- [[../diagrams/generated/02_platform_subsystems.svg][Platform Subsystems]]
+- [[../diagrams/generated/03_firmware_modules.svg][Firmware Modules]]
+
+* Contributor Material
+
+- [[./onboarding/student_contributor_guide.org][Student Contributor Guide]]
+- [[./onboarding/toolchain_setup.org][Toolchain Setup]]
+
+* Project Management
+
+- [[./planning/roadmap.org][Roadmap]]
+- [[./planning/open_questions.org][Open Questions]]
+- GitHub Issues: https://github.com/org/repo/issues
