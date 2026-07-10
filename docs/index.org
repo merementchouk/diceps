@@ -7,6 +7,7 @@
 
 * Start Here
 
+- [[./onboarding/project_info.org][Project Information & Tracks]]
 - [[./onboarding/getting_started.org][Getting Started]]
 - [[./architecture/overview.org][Architecture Overview]]
 - [[./planning/roadmap.org][Project Roadmap]]
@@ -26,7 +27,7 @@
 
 * Contributor Material
 
-- [[./onboarding/student_contributor_guide.org][Student Contributor Guide]]
+- [[./onboarding/contributor_guide.org][Contributor Guide]]
 - [[./onboarding/toolchain_setup.org][Toolchain Setup]]
 
 * Project Management

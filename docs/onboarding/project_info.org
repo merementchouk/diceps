@@ -1,0 +1,59 @@
+#+TITLE: Student Research Opportunities: Diceps Project
+#+AUTHOR: Mikhail Erementchouk
+#+EMAIL: merement@gmail.com
+#+DATE: <2026-07-10 Fri>
+#+KEYWORDS: recruitment, undergraduate-research, pure-ece, onboarding, diceps
+#+DESCRIPTION: Information page for prospective undergraduate students interested in joining the project.
+
+* Welcome to the Lab!
+
+Thank you for your interest in our research project: *Quantum-Inspired Spin-Based Computing Architectures*. 
+
+We are building **Diceps** (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem)—a physical hardware accelerator designed to solve hard mathematical optimization problems (like scheduling, pathfinding, or routing) by mimicking the way networks of magnetic spins naturally settle into low-energy states.
+
+Instead of running heavy computer simulations, we are building a physical cluster of low-cost microcontrollers (**ESP32-C6**) that exchange data in real time to solve these problems collectively.
+
+* Why Participate?
+
+This project is a fantastic way to gain hands-on engineering experience that bridges theoretical math, hardware systems, and modern software engineering.
+
+** What You Will Learn & Build:
+- **Embedded C/C++ Development:** Write bare-metal firmware using the official Espressif IoT Development Framework (ESP-IDF) on RISC-V microcontrollers.
+- **Modern System Programming:** Work with Rust and Python to build host orchestrators and real-time terminal user interfaces (TUIs).
+- **Hardware-in-the-Loop & Networking:** Benchmark low-latency networks using wired (SPI, CAN bus) or wireless (Zigbee, Wi-Fi) channels.
+- **Collaborative Engineering:** Work with Git, Pull Requests, and Architectural Decision Records (ADRs) just like professional engineering teams.
+
+* Student Tracks & Responsibilities
+
+You don't need to do everything! We have organized the project into several tracks so you can focus on what interests you most:
+
+** 1. Firmware & Hardware Track
+- **Tasks:** Write ESP32-C6 drivers, configure hardware timers and Direct Memory Access (DMA) channels, and implement the numerical equations directly in C/C++.
+- **Key Tech:** C, C++, ESP-IDF.
+
+** 2. Communications & Networking Track
+- **Tasks:** Build and test communication protocols between microcontrollers. Benchmark packet loss and delays over CAN bus, SPI daisy chains, and wireless 802.15.4.
+- **Key Tech:** C, SPI, CAN/TWAI, Zigbee.
+
+** 3. Host Tooling & Visualization Track
+- **Tasks:** Develop the PC-side dashboard that monitors the MCU cluster, sends optimization problems, and visualizes the spin energy settling in real time.
+- **Key Tech:** Rust (Ratatui TUI), Python (PyQt6).
+
+** 4. Mathematics & Algorithm Track
+- **Tasks:** Analyze the mathematical convergence of the R-DIM algorithm and compare physical MCU cluster performance against Python/Julia simulations.
+- **Key Tech:** Julia, Python, Jupyter.
+
+* Who We Are Looking For
+
+**Minimum Qualifications:**
+- Basic programming experience in C/C++ or Python.
+- Familiarity with basic digital logic or circuits (GPIOs, serial communication).
+- Willingness to collaborate using Git and GitHub.
+- Curiosity about unconventional computing, networks, or robotics.
+- *Open to motivated sophomore and junior engineering students.*
+
+* How to Apply
+
+1. **Review the Onboarding Guide:** Check out our [[file:contributor_guide.org][Contributor Onboarding Guide]] to see how we organize tasks and code.
+2. **Submit via PURE-ECE:** Make sure you submit your formal application through the official PURE-ECE program portal.
+3. **Reach Out:** Send an email to the Secondary Mentor, **Mikhail Erementchouk** (merement@umich.edu), with your resume and a brief description of which track(s) you are most interested in.

@@ -2,12 +2,12 @@
 #+AUTHOR: Misha Erementchouk
 #+EMAIL: merement@gmail.com
 #+DATE: <2026-07-09 Thu>
-#+KEYWORDS: onboarding, workflow, guidelines, ddim
+#+KEYWORDS: onboarding, workflow, guidelines, diceps
 #+DESCRIPTION: Foundational guide for researchers contributing to the project.
 
 * Project Goals
 
-The main objective of this project is to implement a Distributed Dynamical Ising Machine (DDIM) using a cluster of ESP32-C6 microcontrollers. An Ising machine is a specialized hardware accelerator designed to solve hard optimization problems (like scheduling, routing, or network grouping) by mimicking magnetic spin behaviors that naturally minimize system energy. 
+The main objective of this project is to implement *Diceps* (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) using a cluster of ESP32-C6 microcontrollers. An Ising machine is a specialized hardware accelerator designed to solve hard optimization problems (like scheduling, routing, or network grouping) by mimicking magnetic spin behaviors that naturally minimize system energy. 
 
 Instead of traditional software simulations, this project distributes the mathematical equations across physical microcontrollers. We aim to:
 - Investigate which communication pathways (SPI, CAN bus, Wi-Fi, 802.15.4) offer the lowest delay for exchanging node data.
@@ -41,7 +41,6 @@ Our architecture and network layouts are tracked visually using PlantUML:
 
 * How to Pick Up a Task
 
-* How to Pick Up a Task
 
 Assignments are governed strictly by the GitHub Issue Tracker, which holds absolute precedence over any text files in the repository. 
 

@@ -1,12 +1,12 @@
-#+TITLE: Distributed Dynamical Ising Machine (DDIM) on ESP32-C6
+#+TITLE: Diceps: Distributed Ising Computing on ESP Platform System
 #+AUTHOR: Project Lead & Contributors
 #+OPTIONS: tex: t LaTeX: t toc:t ^:{}
-#+KEYWORDS: esp32-c6, ising-machine, distributed-computing, embedded-systems
-#+DESCRIPTION: Root repository for a collaborative engineering project implementing an MCU-based distributed dynamical Ising machine.
+#+KEYWORDS: esp32-c6, ising-machine, distributed-computing, embedded-systems, diceps
+#+DESCRIPTION: Root repository for the Diceps project implementing an MCU-based distributed dynamical Ising machine.
 
 * Overview
 
-This repository hosts a collaborative engineering project to implement a *Distributed Dynamical Ising Machine (DDIM)* across a physical cluster of ESP32-C6 DevBoards. 
+This repository hosts a collaborative engineering project implementing *Diceps* (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) across a physical cluster of ESP32-C6 DevBoards. 
 
 An Ising machine is a specialized hardware accelerator designed to solve NP-hard optimization problems by modeling them as networks of interacting magnetic spins that naturally evolve toward a minimum energy state. This project moves away from purely algorithmic software simulations, executing the dynamical equations directly on a distributed, multi-MCU hardware platform.
 

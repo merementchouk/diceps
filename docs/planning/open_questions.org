@@ -2,7 +2,7 @@
 #+AUTHOR: Project Contributors
 #+DATE: <2026-07-09 Thu>
 #+OPTIONS: tex: t LaTeX: t toc:nil ^:{}
-#+KEYWORDS: open questions, research, blockers, ddim
+#+KEYWORDS: open questions, research, blockers, diceps
 #+DESCRIPTION: Living document tracking active engineering uncertainties and mathematical questions.
 
 NOTE: This is a preliminary version of the file.
