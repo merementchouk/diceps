@@ -1,0 +1,101 @@
+@startuml
+title D01 - High-Level Platform Structure
+caption Overall problem/result flow across client, host, interface, and MCU-based Ising platform.
+
+left to right direction
+
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam defaultFontName Arial
+skinparam wrapWidth 180
+skinparam maxMessageSize 120
+
+skinparam node {
+  BorderColor #333333
+  BackgroundColor #F8F8F8
+}
+
+skinparam component {
+  BorderColor #333333
+  BackgroundColor #FFFFFF
+}
+
+skinparam component {
+  BackgroundColor<<Ready>> #DFF2BF
+  BackgroundColor<<NeedsExpansion>> #FFF2B2
+  BackgroundColor<<Investigative>> #BDE5F8
+  BackgroundColor<<External>> #E0E0E0
+}
+
+skinparam node {
+  BackgroundColor<<Host>> #E8F0FE
+  BackgroundColor<<Interface>> #FFF7E6
+  BackgroundColor<<Platform>> #EAF7EA
+}
+
+actor "Client / User\nResearcher, operator,\nor external program" as Client
+
+node "Host System\nPC / Server / SBC" as Host <<Host>> {
+  component "Host Control Software\n\nResponsibilities:\n- accept problem request\n- prepare experiment/job\n- encode platform input\n- collect and decode output\n- present results" as HostSW <<NeedsExpansion>>
+}
+
+node "Communication / Backend Interface\nLogical boundary or dedicated bridge device" as Interface <<Interface>> {
+  component "Transport Adapter\nUSB / UART / SPI / WiFi / Ethernet / etc." as Transport <<NeedsExpansion>>
+  component "Protocol / Backend Adapter\nHost-facing API ↔ platform-specific protocol" as Protocol <<NeedsExpansion>>
+}
+
+node "MCU Ising Platform\nMicrocontroller-based backend" as Platform <<Platform>> {
+  component "Platform Firmware\n\nResponsibilities:\n- receive input job\n- configure solver\n- manage execution\n- return status/results" as Firmware <<NeedsExpansion>>
+
+  component "Ising Computation Engine\n\nResponsibilities:\n- perform update steps\n- evaluate state/energy\n- produce solution candidate" as Solver <<Investigative>>
+}
+
+Client --> HostSW : 1. pose problem\nproblem instance, parameters,\nconstraints, run request
+
+HostSW --> Transport : 2. send encoded input job\nbackend-independent or semi-portable form
+
+Transport --> Protocol : 3. frame / transport / relay
+Protocol --> Firmware : 4. platform-specific input\ncommands, data, configuration
+
+Firmware --> Solver : 5. execute Ising computation
+Solver --> Firmware : 6. computed output\nstate, energy, diagnostics
+
+Firmware --> Protocol : 7. platform-specific output
+Protocol --> Transport : 8. decode / translate / relay
+Transport --> HostSW : 9. result package\nsolution, metrics, logs
+
+HostSW --> Client : 10. present output\nsolution, status, analysis
+
+note bottom of Interface
+  The interface is intentionally shown as a separate architectural region.
+
+  It may be:
+  - only a logical protocol layer,
+  - a USB/UART/SPI bridge,
+  - a WiFi/Bluetooth communication module,
+  - a backend adapter for FPGA or other accelerators,
+  - or a device that participates in computation.
+
+  This region should be expanded later.
+end note
+
+note bottom of Platform
+  The MCU platform is the first concrete backend.
+
+  Future diagrams should expand:
+  - firmware module structure,
+  - solver control flow,
+  - memory layout,
+  - host/platform command protocol,
+  - computation behavior.
+end note
+
+legend right
+  |= Visual status |= Meaning |
+  | <back:#DFF2BF>Ready</back> | Stable enough for implementation |
+  | <back:#FFF2B2>NeedsExpansion</back> | Requires lower-level diagram/spec |
+  | <back:#BDE5F8>Investigative</back> | Design/research question remains open |
+  | <back:#E0E0E0>External</back> | External dependency or tool |
+endlegend
+
+@enduml

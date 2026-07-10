@@ -5,19 +5,43 @@
 #+KEYWORDS: architecture, ddim, system-design, diceps
 #+DESCRIPTION: High-level architectural blueprint of the Diceps distributed computing platform.
 
+NOTE: The parts not supplemented by a diagram should be regarded as placeholders.
+
 * Overview
 
-This document provides a high-level overview of the *Diceps* (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) architecture. 
+This document provides a high-level overview of the *Diceps* (**D**istributed
+**I**sing **C**omputing on **E**SP **P**latform **S**ystem) architecture.
 
-Diceps is designed to realize continuous-time spin dynamics (modeled on the U-M V-2 non-binary dynamical Ising machine equations) across a physical network of low-cost microcontrollers. It serves as an experimental testbed for understanding the physical constraints, latencies, and synchronization issues inherent in distributed unconventional hardware.
+Diceps is designed to realize continuous-time relaxed spin dynamics
+described by the V-2 model (see [REF:V_2_FOUNDATIONS]) across a physical
+network of low-cost microcontrollers. It serves as an experimental testbed
+for understanding the physical constraints, latencies, and synchronization
+issues inherent in distributed unconventional hardware.
 
-* System Context & Topology
+List of diagrams
 
-The Diceps platform is divided into two primary environments: the **Host PC** (orchestration, simulation, visualization) and the **MCU Cluster** (distributed physical solver nodes).
+| Diagram ID | Diagram                      | Purpose                                          |
+|------------+------------------------------+--------------------------------------------------|
+| D01        | Platform Structure           |                                                  |
+| D02 (WIP)  | Host Software Structure      | Host responsibilities                            |
+| D03 (WIP)  | Interface-Protocol Structure | Backend responsibilities                         |
+| D04 (WIP)  | MCU Firmware Architecture    | Expand firmware modules                          |
+| D05 (WIP)  | Solver Computation Activity  | Computation run                                  |
+| D06 (WIP)  | Host-to-Platform Sequence    | Command/result exchange                          |
+| D07 (WIP)  | Firmware State Machine       | Boot, idle, receive, run, error, complete states |
+|            |                              |                                                  |
+
+* System Structure
+
+The Diceps platform is divided into two primary environments: the **Host PC**
+(orchestration, monitoring) and the **MCU Ising Platform** (distributed
+solver nodes). They are connected through the *Host-Backend Interface*, which
+could be either a logical boundary or a dedicated bridge device.
 
 #+caption: Diceps System Context Diagram
 #+name: fig:system-context
-[[file:../diagrams/generated/01_system_context.svg]]
+[[file:../diagrams/generated/D01-compact-platform-structure.svg]]
+
 
 ** 1. The Host PC (Orchestrator)
 - **Role:** Translates high-level optimization problems (e.g., Max-Cut adjacency matrices) into configuration payloads, initiates annealing cycles, monitors node telemetry, and visualizes the results.
