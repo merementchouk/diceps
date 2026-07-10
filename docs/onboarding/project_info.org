@@ -3,25 +3,38 @@
 #+EMAIL: merement@gmail.com
 #+DATE: <2026-07-10 Fri>
 #+KEYWORDS: recruitment, undergraduate-research, pure-ece, onboarding, diceps
-#+DESCRIPTION: Information page for prospective undergraduate students interested in joining the project.
+#+DESCRIPTION: Information page for prospective undergraduate students interested in joining the project
 
 * Welcome to the Lab!
 
 Thank you for your interest in our research project: *Quantum-Inspired Spin-Based Computing Architectures*. 
 
-We are building **Diceps** (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem)—a physical hardware accelerator designed to solve hard mathematical optimization problems (like scheduling, pathfinding, or routing) by mimicking the way networks of magnetic spins naturally settle into low-energy states.
+We are building **Diceps** (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) — a physical computing platform designed to solve hard mathematical optimization problems (like scheduling, pathfinding, or routing) by mimicking the way networks of spins settle into low-energy states.
 
-Instead of running heavy computer simulations, we are building a physical cluster of low-cost microcontrollers (**ESP32-C6**) that exchange data in real time to solve these problems collectively.
+We are building a physical cluster of low-cost ESP32-C6 microcontrollers that work together as an unconventional computing system. The purpose is to confront the realities that future distributed Ising-style machines will face: communication latency, packet loss, synchronization error, hardware noise, bandwidth limits, and congestion. These effects are hard to capture faithfully in idealized simulations, making the physical testbed essential for developing practical architectural insight.
+
+** Core Research Objective: Designing Unconventional Architecture
+
+While this project involves writing firmware, *it aims beyond standard embedded programming*. The main engineering and research challenge of Diceps is architectural: **how do we organize efficient, reliable, and synchronized operation of a distributed computing network?**
+
+Students in this project will investigate foundational questions:
+
+- **Information Exchange Protocol:** What is the minimal set of data that nodes need to share to settle correctly? How should we package, route, and serialize relaxed spin states?
+- **Network Reliability & Resilience:** Does the math of the Ising machine tolerate packet loss (treating it as system noise), or do we need custom error correction, retransmission, or flow control protocols?
+- **Buffer & Cache Organization:** How do we organize memory buffers and message queues on low-power chips to prevent latency spikes and congestion during high-speed broadcasts?
+- **Distributed Synchronization:** What does "synchronization" mean when separate microcontrollers run independent integration loops? 
 
 * Why Participate?
 
 This project is a fantastic way to gain hands-on engineering experience that bridges theoretical math, hardware systems, and modern software engineering.
 
-** What You Will Learn & Build:
+** What You Will Learn and Build:
+
+- **Design Unconventional Computing Architecture:** Move beyond standard firmware writing to design the core communication and synchronization protocols that allow distributed microcontrollers to collectively act as a single computing engine. You will study *what* information needs to be exchanged, *how* to exchange it efficiently (e.g., buffering, cache design, and error correction), and how to maintain network-wide synchronization.
 - **Embedded C/C++ Development:** Write bare-metal firmware using the official Espressif IoT Development Framework (ESP-IDF) on RISC-V microcontrollers.
-- **Modern System Programming:** Work with Rust and Python to build host orchestrators and real-time terminal user interfaces (TUIs).
+- **Modern System Programming:** Work with Rust and Python to build host orchestrators and real-time graphical and terminal user interfaces (GUIs, TUIs).
 - **Hardware-in-the-Loop & Networking:** Benchmark low-latency networks using wired (SPI, CAN bus) or wireless (Zigbee, Wi-Fi) channels.
-- **Collaborative Engineering:** Work with Git, Pull Requests, and Architectural Decision Records (ADRs) just like professional engineering teams.
+- **Collaborative Engineering:** Work with Git, GitHub, Pull Requests, and Architectural Decision Records (ADRs) just like professional engineering teams.
 
 * Student Tracks & Responsibilities
 
@@ -33,27 +46,26 @@ You don't need to do everything! We have organized the project into several trac
 
 ** 2. Communications & Networking Track
 - **Tasks:** Build and test communication protocols between microcontrollers. Benchmark packet loss and delays over CAN bus, SPI daisy chains, and wireless 802.15.4.
-- **Key Tech:** C, SPI, CAN/TWAI, Zigbee.
+- **Key Tech:** C, Zigbee, SPI, CAN/TWAI.
 
-** 3. Host Tooling & Visualization Track
-- **Tasks:** Develop the PC-side dashboard that monitors the MCU cluster, sends optimization problems, and visualizes the spin energy settling in real time.
-- **Key Tech:** Rust (Ratatui TUI), Python (PyQt6).
+** 3. Host Tooling, Simulation & Visualization Track
+- **Tasks:** Develop the host-side tools used to simulate, control, monitor, and visualize the Diceps platform. Students may work on behavior simulation, communication protocols and APIs between the host and MCU cluster, terminal-based control interfaces, or GUI frontends for visualizing spin states and convergence in real time.
+- **Key Tech:** Rust (Ratatui TUI, host/platform communication), Python (PyQt6, simulation and visualization).
 
 ** 4. Mathematics & Algorithm Track
-- **Tasks:** Analyze the mathematical convergence of the R-DIM algorithm and compare physical MCU cluster performance against Python/Julia simulations.
+- **Tasks:** Analyze the mathematical convergence of the R-DIM algorithms and compare physical MCU cluster performance against idealized simulations.
 - **Key Tech:** Julia, Python, Jupyter.
 
 * Who We Are Looking For
 
 **Minimum Qualifications:**
+- Curiosity about unconventional computing, networks, or robotics.
 - Basic programming experience in C/C++ or Python.
 - Familiarity with basic digital logic or circuits (GPIOs, serial communication).
 - Willingness to collaborate using Git and GitHub.
-- Curiosity about unconventional computing, networks, or robotics.
 - *Open to motivated sophomore and junior engineering students.*
 
 * How to Apply
 
 1. **Review the Onboarding Guide:** Check out our [[file:contributor_guide.org][Contributor Onboarding Guide]] to see how we organize tasks and code.
-2. **Submit via PURE-ECE:** Make sure you submit your formal application through the official PURE-ECE program portal.
-3. **Reach Out:** Send an email to the Secondary Mentor, **Mikhail Erementchouk** (merement@umich.edu), with your resume and a brief description of which track(s) you are most interested in.
+2. **Reach Out:** Send an email to **Dr. Mikhail Erementchouk** (merement@umich.edu) with your resume and a brief description of which track(s) you are most interested in.
