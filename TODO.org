@@ -1,48 +1,12 @@
-#+TITLE: Master Diagrams & Workspace TODO List
+#+TITLE: Master TODO List
 #+AUTHOR: Project Lead
 #+OPTIONS: tex: t LaTeX: t toc:nil ^:{}
-#+KEYWORDS: diagrams, plantuml, tasks, workflow
-#+DESCRIPTION: Root tracking file for managing local workflow setups and suggesting project PlantUML diagrams.
+#+KEYWORDS: tasks, workflow
+#+DESCRIPTION: Root tracking file for various TODOs
 
 * Overview
 
-This file serves as a collaborative sandbox for tracking local workflow setups and outlining requested technical system diagrams.
+This file serves as a collaborative sandbox for tracking general/logistical
+todo's. 
 
 *Precedence Notice*: The GitHub Issue Tracker has absolute authority over actual task assignments and developer workflows. The items listed below are structural suggestions or local workflow markers. Once a diagram or a task is actively picked up, an official tracking issue must be opened on GitHub.
-
-* Local Workflow Setup Tasks
-
-** TODO [WORKFLOW-001] Configure Local Auto-Compilation for PlantUML
-- *Context*: We need a way to automatically translate text-based =.puml= files into =.svg= assets without manual intervention, keeping local edits synchronized with the production documentation.
-- *Options to Investigate*:
-  
-*** Option A: Emacs Org-Babel Evaluation Setup
-Add this to =init.el= to compile diagrams dynamically from within the Org documents:
-#+begin_src elisp
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((plantuml . t)))
-
-;; Optional: Only needed if 'plantuml' is not in the system PATH
-;; (setq plantuml-executable-path "/usr/bin/plantuml")
-;; Or point this directly to the local plantuml.jar binary file location
-;; (setq org-plantuml-jar-path "/usr/share/java/plantuml.jar")
-
-#+end_src
-
-*** Option B: Editor-Agnostic Pre-Commit Git Hook
-A private executable script inside the local repository folder at =.git/hooks/pre-commit= to rebuild changed vector graphics automatically right before a commit occurs:
-#+begin_src bash
-#!/bin/bash
-# Find all modified or added .puml files in the diagrams source folder
-PUML_FILES=$(git diff --cached --name-only | grep 'docs/diagrams/src/.*\.puml$')
-
-if [ -n "$PUML_FILES" ]; then
-    echo "Processing updated PlantUML diagrams..."
-    for file in $PUML_FILES; do
-        filename=$(basename "$file" .puml)
-        plantuml -tsvg "$file" -o "../generated/"
-        git add "docs/diagrams/generated/${filename}.svg"
-    done
-fi
-#+end_src
