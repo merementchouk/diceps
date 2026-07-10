@@ -53,9 +53,11 @@ This hardware cluster project builds upon, interacts with, or expands concepts f
 - *[[https://github.com/merement/Dice-GUI][Dice-GUI Application]]*: The visual user interface for (WIP) interacting with, monitoring, and configuring the simulation parameters.
 - *[[https://github.com/merement/diceps-host][diceps-host Orchestrator]]*: The host-side orchestration utility implementing and documenting the host/platform communication API.
 
-#+begin_note
-*Documentation Notice regarding Source Papers:*
-The =docs/papers/= directory currently aggregates various background PDFs, math templates, and legacy README copies imported directly from the related repositories listed above. These external reference files are provided strictly to serve as operational context for developers and integrated workspace AI tools. 
+* Additional Materials
 
-Please note that *the file names, contents, and organization within =docs/papers/= are currently unstable* and will undergo major revisions as we replace placeholder material with tailored, lab-specific documentation. Avoid linking directly to individual file names within that directory.
-#+end_note
+The =docs/papers/= directory contains background scientific literature and reference material detailing the mathematics, optimization models, and algorithms underlying the Diceps project.
+
+- [[file:docs/papers/Shukla%20et%20al.%20-%202025%20-%20Non-binary%20dynamical%20Ising%20machines%20for%20combinatorial%20optimization.pdf][Non-binary dynamical Ising machines for combinatorial optimization (Shukla et al., 2025)]]
+- [[file:docs/papers/Symmetry-induced%20parallelism.pdf][Symmetry-induced parallelism]]
+- [[file:docs/papers/V_2%20for%20discrete%20tomography.pdf][V_2 model for discrete tomography]]
+- [[file:docs/papers/V_2%20model%20foundations.pdf][V_2 model foundations]]
