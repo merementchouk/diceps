@@ -25,6 +25,7 @@ This workspace is organized to support a seamless, mixed-format documentation ec
 .
 ├── src/                    # (Planned) Core C/C++ firmware and hardware drivers
 ├── README.org              # This file
+├── TODO.org                # General TODO-list (see the precedence note)
 └── docs/                   # Main project documentation partition
     ├── architecture/       # High-level system designs and interface specifications
     ├── decisions/          # Architectural Decision Records (ADRs) tracking design choices
@@ -39,8 +40,10 @@ This workspace is organized to support a seamless, mixed-format documentation ec
 
 This project prioritizes explicit knowledge propagation alongside functional firmware implementation. 
 
-- *Primary Format*: The master document format for this repository is Org-mode (=.org=). 
-- *GitHub-First View*: Contributors are not expected to be power users of Emacs or Org-mode. All documents are written using a basic, clean subset of syntax to ensure they render perfectly inside the standard GitHub web interface.
+- *Primary Format*: The master document format for this repository is
+  Org-mode (=.org=). Markdown files are allowed but regarded as temporary.
+- *GitHub-First View*: Contributors are not expected to be power users of
+  Emacs or Org-mode. Therefore, all documents should be written using a basic, clean subset of syntax to ensure they render perfectly inside the standard GitHub web interface.
 - *Task Authority*: The GitHub Issue Tracker is the absolute source of truth for task tracking and holds complete precedence over files in the repository. Localized =to_add.lst= task files and inline =TODO= markers serve purely as suggestions and roadmap guides.
 
 For an in-depth breakdown of developer workflows, coding conventions, and documentation standards, please read the *Contributor Onboarding Guide* located at:
