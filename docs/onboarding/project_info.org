@@ -28,10 +28,10 @@ While this project involves writing firmware, *it aims beyond standard embedded 
 
 Students in this project will investigate foundational questions:
 
-- **Information Exchange Protocol:** What is the minimal set of data that nodes need to share to settle correctly? How should we package, route, and serialize relaxed spin states?
-- **Network Reliability & Resilience:** Does the math of the Ising machine tolerate packet loss (treating it as system noise), or do we need custom error correction, retransmission, or flow control protocols?
-- **Buffer & Cache Organization:** How do we organize memory buffers and message queues on low-power chips to prevent latency spikes and congestion during high-speed broadcasts?
-- **Distributed Synchronization:** What does "synchronization" mean when separate microcontrollers run independent integration loops? 
+- *Information Exchange Protocol:* What is the minimal set of data that nodes need to share to settle correctly? How should we package, route, and serialize relaxed spin states?
+- *Network Reliability & Resilience:* Does the math of the Ising machine tolerate packet loss (treating it as system noise), or do we need custom error correction, retransmission, or flow control protocols?
+- *Buffer & Cache Organization:* How do we organize memory buffers and message queues on low-power chips to prevent latency spikes and congestion during high-speed broadcasts?
+- *Distributed Synchronization:* What does "synchronization" mean when separate microcontrollers run independent integration loops? 
 
 * Why Participate?
 

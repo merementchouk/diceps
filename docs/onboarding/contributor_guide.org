@@ -7,13 +7,20 @@
 
 * Project Goals
 
-The main objective of this project is to investigate the architectural design space of distributed physical computing systems through the implementation of *Diceps* (**D**istributed **I**sing **C**omputing on **E**SP **P**latform **S**ystem) using a cluster of ESP32-C6 microcontrollers. An Ising machine is a specialized hardware accelerator designed to solve hard optimization problems (like scheduling, routing, or network grouping) by mimicking magnetic spin behaviors that naturally minimize system energy.
+The main objective of this project is to investigate the architectural
+design space of distributed physical computing systems through the
+implementation of *Diceps* (Distributed Ising Computing on
+ESP Platform System) using a cluster of ESP32-C6
+microcontrollers. An Ising machine is a specialized hardware accelerator
+designed to solve hard optimization problems (like scheduling, routing, or
+network grouping) by mimicking magnetic spin behaviors that naturally
+minimize system energy.
 
 While embedded firmware development is the practical vehicle, our core research goals focus on how information is efficiently exchanged, buffered, and synchronized across distributed node topologies. Specifically, we aim to:
-- **Explore Information Exchange Boundaries:** Determine *what* data nodes must broadcast and *how* to serialize it. Analyze the need for network-level error correction vs. relying on the algorithm's inherent noise tolerance.
-- **Optimize Low-Latency Topologies & Buffers:** Investigate CAN bus (TWAI), high-speed SPI chaining, Wi-Fi, and 802.15.4 protocols. Design efficient hardware buffering and cache mechanisms to prevent latency jitter.
-- **Solve Distributed Synchronization:** Study timing boundaries, clock drift, and synchronization methods across independent MCUs, assessing the trade-offs of synchronous lockstep vs. asynchronous node updates.
-- **Model Validation:** Validate the performance and convergence of our hardware-in-the-loop cluster against the lab's proprietary mathematical models.
+- *Explore Information Exchange Boundaries:* Determine *what* data nodes must broadcast and *how* to serialize it. Analyze the need for network-level error correction vs. relying on the algorithm's inherent noise tolerance.
+- *Optimize Low-Latency Topologies & Buffers:* Investigate CAN bus (TWAI), high-speed SPI chaining, Wi-Fi, and 802.15.4 protocols. Design efficient hardware buffering and cache mechanisms to prevent latency jitter.
+- *Solve Distributed Synchronization:* Study timing boundaries, clock drift, and synchronization methods across independent MCUs, assessing the trade-offs of synchronous lockstep vs. asynchronous node updates.
+- *Model Validation:* Validate the performance and convergence of our hardware-in-the-loop cluster against the lab's proprietary mathematical models.
 
 * Expected Background
 

@@ -1,0 +1,374 @@
+#+TITLE: Supporting Papers and Reference Materials
+#+AUTHOR: DICEPS Project
+#+OPTIONS: toc:2 num:nil
+#+DATE: <2026-07-16 Thu>
+
+* Overview
+
+This directory contains supporting reference materials for the DICEPS project.
+The materials collected here provide background on the dynamical Ising-machine
+ideas, software components, host utilities, visualization tools, and research
+papers that motivate and contextualize the project.
+
+This folder may be useful as a starting point for gaining better understanding:
+
+- What dynamical Ising machines are
+- How relaxed spin networks evolve over time
+- How the DICE simulation and visualization tools fit together
+- How host-side utilities are planned to interact Dice-based backends
+- What research problems motivate the project, including combinatorial
+  optimization, discrete tomography, and so on.
+
+This folder is not intended to replace the main project documentation. Instead,
+it serves as a reference library and reading guide for the theoretical and
+software foundations of the project.
+
+* Suggested Reading Path
+
+If you are new to the project, the following order may be useful:
+
+1. [[file:Dice README.org][Dice README.org]]
+
+   Start here for an overview of the Julia [[https://github.com/merement/Dice][simulation library]] used for
+   implementing research dynamic Ising solvers based on nonlinear relaxations.
+
+2. [[file:Dice-GUI README.md][Dice-GUI README.md]]
+
+   Read this next if you want to understand how simulation data can be
+   visualized through the Python/PyQt6 [[https://github.com/merement/Dice-GUI][graphical frontend]].
+
+3. [[file:diceps-host README.md][diceps-host README.md]]
+
+   Read this if you are interested in a [[https://github.com/merement/diceps-host][utility]] implementing host-side
+   control and communication with Dice-based computing backends.
+
+4. [[file:V_2 model foundations.pdf][V_2 model foundations.pdf]]
+
+   [[http://arxiv.org/abs/2305.06414][This paper]] provides important background on the V-2 dynamical model and its
+   role in relaxation-based dynamical Ising machines.
+
+5. [[file:Shukla et al. - 2025 - Non-binary dynamical Ising machines for combinatorial optimization.pdf][Non-binary dynamical Ising machines for combinatorial optimization.pdf]]
+
+   [[https://arxiv.org/abs/2412.08481][This paper]] gives broader context for non-binary dynamical Ising machines
+   and their applications to combinatorial optimization problems.
+
+6. [[file:V_2 for discrete tomography.pdf][V_2 for discrete tomography.pdf]]
+
+   [[http://arxiv.org/abs/2512.22784][This paper]] demonstrates that the dynamical Ising machine driven by the
+   V-2 model presents an alternative unconventional algorithm for solving
+   discrete tomography problems.
+
+7. [[file:Symmetry-induced parallelism.pdf][Symmetry-induced parallelism.pdf]]
+
+   [[https://arxiv.org/abs/2605.04204v1][This paper]] discusses how symmetries in relaxed spin networks can support
+   simultaneous computation within a single dynamical system.
+
+* Contents
+
+** Software and Tool Documentation
+
+*** [[file:Dice README.org][Dice README.org]]
+
+README for the Julia simulation library.
+
+The Dice library implements a research dynamic Ising solver based on nonlinear
+relaxations. It contains functions, packages, and tools for running Ising
+machines using various relaxation methods. Students may find this useful for
+understanding or extending simulation code related to relaxed spin networks and
+dynamical Ising systems.
+
+Topics covered include:
+
+- Julia-based simulation infrastructure
+- Dynamic Ising solvers
+- Nonlinear relaxation methods
+- Tools for building or supplementing Ising-machine simulations
+
+*** [[file:Dice-GUI README.md][Dice-GUI README.md]]
+
+README for the Python-based graphical visualization application.
+
+Dice-GUI is a PyQt6-based frontend for visualizing time-dependent simulation
+data from DICE/Ising-type simulations. It is intended to display dynamic
+variables that live on a circular coordinate and evolve over simulation time.
+
+The current focus is file-based visualization. Future versions may support
+streaming data directly from simulation backends.
+
+Topics covered include:
+
+- GUI-based visualization of relaxed spin-network dynamics
+- Time-dependent simulation data
+- Circular-coordinate variables
+- File-based simulation output inspection
+
+*** [[file:diceps-host README.md][diceps-host README.md]]
+
+README for the Rust-based host interface and control utility.
+
+=diceps-host= is a terminal-native host utility for communicating with,
+monitoring, and controlling Dice-based computing architectures. It serves as a
+research and evaluation gateway for Dice-based systems, including
+hardware-in-the-loop environments.
+
+The current target includes ESP32-based solutions, such as the companion
+ESP32-C6 emulator =diceps-mock-client=. The host utility is also expected to
+support software-defined simulation backends.
+
+Topics covered include:
+
+- Rust-based host-side control
+- Terminal-native monitoring and interaction
+- Hardware-in-the-loop research workflows
+- ESP32-based Dice architecture targets
+- Future software-defined simulation backends
+
+** Research Papers
+
+*** [[file:Shukla et al. - 2025 - Non-binary dynamical Ising machines for combinatorial optimization.pdf][Non-binary dynamical Ising machines for combinatorial optimization.pdf]]
+
+This paper studies non-binary dynamical Ising machines for combinatorial
+optimization. Dynamical Ising machines solve difficult optimization problems by
+mapping convergence to a ground state of a classical spin network onto the
+evolution of a continuous dynamical system.
+
+A key theme of the paper is the relationship between continuous machine states
+and discrete spin states. The authors show that a class of non-binary dynamical
+Ising machines can represent discrete-state information unambiguously in
+essentially continuous dynamical systems.
+
+Example applications discussed in the paper include:
+
+- Proper graph coloring
+- Latin square construction
+- Sudoku solving
+
+Why this matters for the project:
+
+- Provides high-level motivation for non-binary dynamical Ising machines
+- Shows how continuous dynamics can encode discrete computational structure
+- Connects the project to scalable electronic accelerators for combinatorial
+  optimization
+
+*** [[file:Symmetry-induced parallelism.pdf][Symmetry-induced parallelism.pdf]]
+
+This paper discusses how system symmetries can provide a mechanism for encoding
+multiple computational states within a single physical system, without requiring
+separate spatial or temporal computation channels.
+
+Using Boolean-function evaluation as an example, the paper shows that a relaxed
+spin network driven by the V-2 model can support symmetry-induced parallelism.
+
+Examples discussed include:
+
+- Logical AND/OR gates
+- N-bit adders
+- Simultaneous computations enabled by symmetry
+
+Why this matters for the project:
+
+- Connects relaxed spin-network dynamics to parallel computation
+- Shows how symmetry can encode multiple computational states
+- Demonstrates that nonlinear systems may support simultaneous computation
+  without ordinary task separation
+
+*** [[file:V_2 for discrete tomography.pdf][V_2 for discrete tomography.pdf]]
+
+This paper studies the use of a V-2-driven dynamical Ising machine for solving
+discrete tomography problems.
+
+Discrete tomography concerns reconstructing a binary image from pixel sums along
+a discrete set of rays. The paper shows that the V-2 model can converge with
+high probability to an image that exactly satisfies the tomographic data.
+
+This is distinct from many typical Ising-machine applications, which often aim
+for approximate solutions to optimization problems. Here, the emphasis is on
+exact reconstruction.
+
+Why this matters for the project:
+
+- Demonstrates a concrete data-processing application of the V-2 model
+- Shows that the model can solve some structured problems exactly
+- Highlights the importance of dynamical features such as non-local transitions
+  beyond ordinary Hamming-neighborhood constraints
+
+*** [[file:V_2 model foundations.pdf][V_2 model foundations.pdf]]
+
+This paper provides foundational theory for the V-2 dynamical model.
+
+Relaxation-based dynamical Ising machines are important because they are related
+to performance guarantees with time scaling polynomially in the problem size.
+However, many relaxation-based machines terminate in non-binary states, requiring
+post-processing to obtain binary solutions.
+
+The V-2 model addresses this issue dynamically. The paper shows that a V-2
+machine starting from an arbitrary non-binary state terminates in a state that
+can be trivially rounded to a binary state with a cut at least as large as that
+obtained by optimal rounding of the initial state.
+
+Why this matters for the project:
+
+- Provides theoretical background for the V-2 dynamical model
+- Explains how the model addresses the rounding problem dynamically
+- Shows how relaxation-based dynamical Ising machines can become more
+  self-contained
+- Supports the broader idea that dynamical systems can directly perform complex
+  information-processing tasks
+
+* Key Concepts
+
+Students may encounter the following recurring concepts while reading these
+materials.
+
+** Ising Machine
+
+An Ising machine is a computational system designed to solve problems that can
+be expressed in terms of an Ising Hamiltonian or a related spin-network energy
+function. Many combinatorial optimization problems can be mapped into this form.
+
+** Dynamical Ising Machine
+
+A dynamical Ising machine uses the time evolution of a dynamical system to search
+for low-energy or ground-state configurations of a spin network.
+
+Instead of directly flipping discrete spins, the system evolves according to
+continuous or relaxed equations of motion.
+
+** Relaxed Spin Network
+
+A relaxed spin network generalizes binary spin variables into continuous or
+non-binary variables. This can make the system easier to evolve dynamically, but
+it also introduces the challenge of relating continuous states back to discrete
+solutions.
+
+** V-2 Model
+
+The V-2 model is a particular dynamical model used to drive relaxed spin
+networks. Several papers in this folder study its ability to dynamically resolve
+binary-state information, solve exact reconstruction problems, and support
+symmetry-induced parallelism.
+
+** Rounding Problem
+
+In relaxation-based optimization, a system may produce a non-binary solution that
+must be converted back into a binary one. This conversion is called rounding.
+
+One important theme in the V-2 work is that the model can address certain
+rounding issues through its own dynamics, reducing the need for separate
+post-processing.
+
+** Hardware-in-the-Loop
+
+Hardware-in-the-loop refers to workflows where software interacts with physical
+hardware during simulation, evaluation, or control. In this project,
+=diceps-host= supports this kind of interaction for Dice-based computing
+architectures, including ESP32-based targets.
+
+* How to Use This Directory
+
+This directory is useful for several different audiences.
+
+** For Students
+
+Use this folder as a guided reading collection. Start with the software READMEs
+to understand the project components, then move to the foundational V-2 paper
+before reading the more specialized application papers.
+
+Recommended starting questions:
+
+- What problem is an Ising machine trying to solve?
+- Why are continuous dynamical systems useful for discrete optimization?
+- What makes the V-2 model different from other relaxation-based approaches?
+- How do the software components relate to the theory in the papers?
+
+** For Contributors
+
+Use this folder to understand the motivation behind the codebase and the
+research context for future development.
+
+Relevant questions include:
+
+- Which software component implements simulation logic?
+- Which component visualizes simulation output?
+- Which component communicates with hardware or emulated backends?
+- Which papers justify or motivate the computational model being implemented?
+
+** For Researchers
+
+Use this folder as a compact reference set for the project’s theoretical
+background and related applications.
+
+The papers connect the project to:
+
+- Combinatorial optimization
+- Continuous dynamical systems
+- Relaxed spin networks
+- Exact discrete tomography
+- Symmetry-enabled computation
+- Hardware-oriented computational accelerators
+
+* Notes on File Organization
+
+The documents in this directory are supporting references. They may describe
+different but related parts of the broader project ecosystem:
+
+- Simulation libraries
+- Visualization tools
+- Host-side control utilities
+- Mathematical and physical foundations
+- Applications of the V-2 model
+
+When adding new materials, prefer descriptive filenames and update this README
+with a short summary explaining why the file is relevant.
+
+* Adding New References (for maintainers)
+
+When adding a new paper, README, or reference document to this directory, please
+add an entry under the appropriate section above.
+
+A useful entry should include:
+
+- The filename as an Org-mode link
+- The document title
+- Publication venue, if applicable
+- A short summary
+- Why the document is relevant to DICEPS
+- Suggested audience, if helpful
+
+Example:
+
+#+BEGIN_SRC org
+*** [[file:example-paper.pdf][Example Paper Title]]
+
+Published in /Example Venue/.
+
+Brief summary of the paper.
+
+Why this matters for the project:
+
+- Key point 1
+- Key point 2
+- Key point 3
+#+END_SRC
+
+* Citation and Copyright Notes
+
+Some files in this directory may be published research papers. When using these
+materials in reports, presentations, publications, or derived work, cite the
+original authors and venues appropriately.
+
+Do not assume that a PDF being present in this repository grants permission to
+redistribute it outside the repository or reuse its figures, tables, or text
+without checking the applicable license, publisher policy, or author permission.
+
+* (TODO) See Also
+
+Depending on the repository layout, useful related locations may include:
+
+- The main project README
+- Source-code directories for the DICEPS components
+- Simulation examples or notebooks
+- Hardware interface documentation
+- Visualization examples
+- Issue tracker discussions related to the V-2 model, Ising machines, or
+  host-side control
